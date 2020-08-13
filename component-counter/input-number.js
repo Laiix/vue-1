@@ -1,5 +1,5 @@
 function isValueNumber(value) {
-	return (/(^-?[0-9]+\.{1}\d+$) | (^-?[1-9][0-9]*$) | (^-?0{1}$)/).test(value + '');
+	return (/(^-?[0-9]+\.{1}\d+$)|(^-?[1-9][0-9]*$)|(^-?0{1}$)/).test(value + '');
 }
 
 Vue.component('input-number', {
@@ -28,58 +28,58 @@ Vue.component('input-number', {
 		value: {
 			type: Number,
 			default: 0
-		},
-		data: function() {
+		}
+	},
+	data: function() {
 			return {
 				currentValue: this.value
 			}
 		},
-		watch: {
-			currentValue: function(val) {
-				this.$emit('input', val);
-				this.$emit('on-change', val);
-			},
-			value: function(val) {
-				this.updateValue(val);
-			}
+	watch: {
+		currentValue: function(val) {
+			this.$emit('input', val);
+			this.$emit('on-change', val);
 		},
-		methods: {
-			handleDown: function() {
-				if(this.currentValue < this.min) return;
-				this.currentValue -= 1;
-			},
-			handleUp: function() {
-				if(this.currentValue > this.max) return;
-				this.currentValue += 1;
-			},
-			updateValue: function(val) {
-				if(val > this.max) val = this.max;
-				if(val < this.min) val = this.min;
+		value: function(val) {
+			this.updateValue(val);
+		}
+	},
+	methods: {
+		handleDown: function() {
+			if(this.currentValue < this.min) return;
+			this.currentValue -= 1;
+		},
+		handleUp: function() {
+			if(this.currentValue > this.max) return;
+			this.currentValue += 1;
+		},
+		updateValue: function(val) {
+			if(val > this.max) val = this.max;
+			if(val < this.min) val = this.min;
+			this.currentValue = val;
+		},
+		handleChange: function(event) {
+			var val = event.target.value.trim();
+
+			var max = this.max;
+			var min = this.min;
+
+			if(isValueNumber(val)) {
+				val = Number(val);
 				this.currentValue = val;
-			},
-			handleChange: function(event) {
-				var val = event.target.value.trim();
 
-				var max = this.max;
-				var min = this.min;
+				if(val > max) {
+					this.currentValue = max;
+				} else if (val < min) {
+					this.currentValue = min;
 
-				if(isValueNumber(val)) {
-					val = Number(val);
-					this.currentValue = val;
-
-					if(val > max) {
-						this.currentValue = max;
-					} else if (val < min) {
-						this.currentValue = min;
-
-					} else {
-						event.target.value = this.currentValue
-					}
+				} else {
+					event.target.value = this.currentValue
 				}
 			}
-		},
-		mounted: function() {
-			this.updateValue(this.value);
 		}
+	},
+	mounted: function() {
+		this.updateValue(this.value);
 	}
 })
