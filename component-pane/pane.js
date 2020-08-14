@@ -1,9 +1,9 @@
 Vue.component('pane', {
 	name: 'pane',
 	template: '\
-	<div class="pane" v-show="show">\
-		<slot></slot>\
-	</div>',
+		<div class="pane" v-show="show">\
+			<slot></slot>\
+		</div>',
 	data: function() {
 		return {
 			show: true
@@ -24,11 +24,11 @@ Vue.component('pane', {
 		}
 	},
 	watch: {
-		lable() {
-			this.updateNav();
-		}
+		// lable() {
+		// 	this.updateNav();
+		// }
 	},
-	mounted() {
+	mounted: function() {
 		this.updateNav();
 	}
 })

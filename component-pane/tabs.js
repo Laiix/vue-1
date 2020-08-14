@@ -5,9 +5,9 @@ Vue.component('tabs', {
 				<!-- 标签页标题，这里要用v-for -->\
 				<div \
 					:class="tabCls(item)" \
-					v-for="(item, index") in navList" \
+					v-for="(item, index) in navList" \
 					@click="handleChange(index)">\
-						{{ item.lable }}\
+						{{ item.label }}\
 				</div>\
 			</div>\
 			<div class="tabs-content">\
@@ -30,9 +30,9 @@ Vue.component('tabs', {
 		currentValue: function(val) {
 			this.updateStatus();
 		},
-		value: function(val) {
-			this.currentValue = val;
-		}
+		// value: function(val) {
+		// 	this.currentValue = val;
+		// }
 	},
 	methods: {
 		tabCls: function(item) {
@@ -52,9 +52,9 @@ Vue.component('tabs', {
 			this.navList = [];
 			var _this = this;
 
-			this.getTabs.forEach(function(pane, index){
+			this.getTabs().forEach(function(pane, index){
 				_this.navList.push({
-					lable: pane.lable,
+					label: pane.label,
 					name: pane.name || index
 				});
 				if(!pane.name) pane.name = index;
@@ -78,8 +78,8 @@ Vue.component('tabs', {
 			var nav = this.navList[index];
 			var name = nav.name;
 			this.currentValue = name;
-			this.$emit('input', name);
-			this.$emit('on-click', name);
+			// this.$emit('input', name);
+			// this.$emit('on-click', name);
 		}
 	}
 })
