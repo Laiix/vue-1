@@ -5,7 +5,7 @@
 	font-size: 14px;
 	color: #657180;
 }
-.tabs-bar:after {
+.tabs-tab:after {
 	content: '';
 	display: block;
 	width: 100%;
@@ -27,7 +27,7 @@
 	border-top: 1px solid #3399ff;
 	border-bottom:  1px solid #fff;
 }
-.tabs-bar-active:before {
+.tabs-tab-active:before {
 	content: '';
 	display: block;
 	height: 1px;
