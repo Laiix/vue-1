@@ -91,3 +91,34 @@ npm install style-loader --save-dev
 npm install --save-dev mini-css-extract-plugin
 
 ```
+
+### webpack-vue-1
+
+./.babelrc
+
+./app.vue
+
+./button.vue
+
+./images/image.jpg
+
+./index.ejs
+
+./index.html
+
+./index_prod.html
+
+./main.js
+
+./package-lock.json
+
+./package.json
+
+./style.css
+
+./title.vue
+
+./webpack.config.js
+
+./webpack.prod.config.js
+
