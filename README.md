@@ -122,3 +122,19 @@ npm install --save-dev mini-css-extract-plugin
 
 ./webpack.prod.config.js
 
+### webpack-vue-router
+
+./.babelrc
+./app.vue
+./index.ejs
+./index.html
+./main.js
+./package-lock.json
+./package.json
+./style.css
+./views/about.vue
+./views/index.vue
+./views/user.vue
+./webpack.config.js
+./webpack.prod.config.js
+
